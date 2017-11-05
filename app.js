@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('dotenv').config();
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -20,7 +22,7 @@ app.use(function(req, res, next){
 	res.locals.connection = mysql.createConnection({
 		host     : 'localhost',
 		user     : 'root',
-		password : '',
+		password : 'DB_PASS',
 		database : 'react_mysql'
 	});
 	res.locals.connection.connect();
